@@ -9,7 +9,7 @@ export default class headline {
 
     facebook = () => {
         return fetch('http://likealyzer.com/facebook/nownews', {
-                timeout: 5000
+                timeout: 10000
             })
             .then((res) => {
                 return res.text();
@@ -25,7 +25,7 @@ export default class headline {
     }
     weibo = () => {
         return fetch('http://tw.weibo.com/nownews', {
-                timeout: 5000
+                timeout: 10000
             })
             .then((res) => {
                 return res.text();
