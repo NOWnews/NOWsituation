@@ -58,11 +58,12 @@
         <p>Line
           <input v-model="fans.line" type="number" />
         </p>
-        <p>臉書
+        <p>臉書微博目前用爬蟲抓取粉絲資料</p>
+<!--         <p>臉書
           <input v-model="fans.facebook" type="number" />
         </p>
         <p>微博
-          <input v-model="fans.weibo" type="number" />
+          <input v-model="fans.weibo" type="number" /> -->
         </p>
       </div>
     </div>

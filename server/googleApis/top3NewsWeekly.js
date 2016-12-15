@@ -11,7 +11,7 @@ export default function () {
             'metrics': 'ga:pageviews',
             'dimensions': 'ga:pageTitle',
             'sort': '-ga:pageviews',
-            'max-results':9, // 避免流量最多的是首頁(+2) & 其它頁面(+1) & 抓到類別(+3)
+            'max-results': 11, // 避免流量最多的是首頁(+2) & 其它頁面(+1) & 抓到類別(+5)
         };
         return Google.getAnalytics(params);
     })
@@ -25,7 +25,7 @@ export default function () {
 
             news = row[0].replace('| NOWnews今日新聞', '').trim();
             news = news.replace('| NOWnews 今日新聞', '').trim();
-            if (news.length < 4) { return; } //避免抓到類別
+            if (news.length < 6) { return; } //避免抓到類別
 
             result.push(news);
         });

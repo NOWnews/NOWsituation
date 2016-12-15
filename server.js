@@ -1,5 +1,5 @@
 import express from 'express';
-import { pusher } from './lib';
+import pusher from './server/pusher.js';
 
 let app = express();
 

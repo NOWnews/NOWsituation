@@ -3,7 +3,7 @@ import {
     realtimeByDeviceRate,
     realtimeByTop10News,
     realtimeByTrafficTypeAndTotal,
-} from '../lib/googleApis';
+} from '../server/googleApis';
 
 describe('GA:realtime', () => {
 

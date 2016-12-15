@@ -2,7 +2,7 @@ import {
     ageBracket,
     gender,
     top3NewsWeekly,
-} from '../lib/googleApis';
+} from '../server/googleApis';
 
 describe('GA', () => {
 

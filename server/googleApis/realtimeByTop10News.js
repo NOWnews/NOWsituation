@@ -9,7 +9,7 @@ export default function () {
             'metrics': 'rt:activeUsers',
             'dimensions': 'rt:pageTitle',
             'sort': '-rt:activeUsers',
-            'max-results': 15, // 避免流量最多的是首頁(+2) & 抓到類別(+3)
+            'max-results': 17, // 避免流量最多的是首頁(+2) & 抓到類別(+5)
         };
         return Google.getRealtime(params);
     })
@@ -22,7 +22,7 @@ export default function () {
 
             news = row[0].replace('| NOWnews今日新聞', '').trim();
             news = news.replace('| NOWnews 今日新聞', '').trim();
-            if (news.length < 4) { return; } //避免抓到類別
+            if (news.length < 6) { return; } //避免抓到類別
             result.push(news);
         });
         return Promise.resolve(result.splice(0, 10));

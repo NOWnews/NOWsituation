@@ -7,6 +7,7 @@ import config from '../config';
 import * as googleApis from './googleApis';
 
 import admin from './admin';
+import fans from './fans';
 import rank from './rank';
 
 import { info } from './news';
@@ -16,6 +17,7 @@ export default function pusher() {
     const channelName = `${config.pusher.channelPrefix}sitiuationChannel`;
 
     const Admin = new admin();
+    const Fans = new fans();
     const Rank = new rank();
 
     const triggerInfo = co.wrap(function* (){
@@ -24,6 +26,17 @@ export default function pusher() {
         cacheData.totalPageView = result.totalPageView;
         cacheData.alexa = yield Rank.alexa();
         cacheData.adminApi = yield Admin.api();
+
+        // 有抓到值就會複寫掉 admin 設定的資料
+        let facebook = yield Fans.facebook();
+        let weibo = yield Fans.weibo();
+        if (facebook) {
+            cacheData.adminApi.fans.facebook = parseInt(facebook, 10);
+        }
+        if (weibo) {
+            cacheData.adminApi.fans.weibo = parseInt(weibo, 10);
+        }
+        return
     });
 
     const triggerGA = co.wrap(function* (){
@@ -36,6 +49,7 @@ export default function pusher() {
         cacheData.gender = result[1];
         cacheData.top3News = result[2];
     });
+
 
     const triggerRealtimeGA = co.wrap(function* (){
         let result = yield [

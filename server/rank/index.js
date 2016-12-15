@@ -21,7 +21,7 @@ export default class headline {
                 let globlaRank = $('.globleRank .metrics-data').text();
                 let countryRank = $('.countryRank .metrics-data').text();
                 return Promise.resolve({
-                    type: 'alaxa',
+                    type: 'alexa',
                     globalRank: globlaRank.trim(),
                     countryRank: countryRank.trim()
                 });

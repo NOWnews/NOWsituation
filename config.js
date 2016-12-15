@@ -1,4 +1,5 @@
 module.exports = {
+    apiServer: process.env.NODE_ENV === 'production' ? 'http://10.20.200.190:3000' : 'http://127.0.0.1:3000',
     pusher: {
         appId: '250247',
         key: '6a300271d86955a4fbe7',
