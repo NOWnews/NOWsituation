@@ -1,0 +1,190 @@
+$border-color: #4B5A86;
+$main-background-color: #12225C;
+body {
+    font-family: Helvetica, sans-serif;
+    background: #122000;
+    color: white;
+    height: 100%;
+    font-size: calc(100vh/50);
+    .main-1, .main-2 {
+        flex: 1;
+    }
+
+    .main-3 {
+        flex: 2;
+    }
+}
+
+#container {
+    background: $border-color;
+}
+@media screen and (min-width:3000px) {
+  body {
+    font-size: calc(100vh/30);
+  }
+
+}
+
+
+.border {
+    border: 1px solid $border-color;
+}
+
+.content-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    background: #2D76F6;
+    font-size: 120%;
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+
+    .column-1 {
+        flex: 1;
+    }
+
+    .column-2 {
+        flex: 2;
+    }
+
+    .column-3 {
+        flex: 3;
+    }
+
+    .column-4 {
+        flex: 4;
+    }
+
+    .column-5 {
+        flex: 5;
+    }
+    .flexbox {
+        display: flex;
+    }
+}
+
+.flipped .card {
+    transform: rotateX(180deg);
+}
+
+.card {
+    backface-visibility: hidden;
+    position: relative;
+    transform-style: preserve-3d;
+    transition-property: transform;
+    transition: transform 0.5s;
+    &:after {
+        content: attr(cardData);
+        right: 0px;
+        bottom: 0px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transform: rotateX(180deg);
+        background-color: inherit;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+
+}
+
+table.table {
+    border-width: 0;
+    border-collapse:collapse;
+    height: 100%;
+    width: 100%;
+
+    th, td {
+        background: $main-background-color;
+        padding: 0 1vw;
+        border: 1px solid $border-color;
+    }
+    th {
+        text-align: left;
+        width: 35%;
+    }
+    td {
+        width: 65%;
+    }
+
+    &.realtime-table {
+        th {
+            font-size: 120%;
+            text-align: center;
+            background: #0C153C;
+        }
+        td {
+            font-size: 150%;
+            text-align: center;
+            &:after {
+                text-align: center;
+            }
+        }
+
+        td.padding-left, td.padding-left:after {
+            text-align: left;
+            padding-top: 1vh;
+            padding-left: 3.5vw;
+        }
+    }
+    &.total-pageview-table {
+        th {
+            background: #0C153C;
+            width: 23%;
+        }
+        td {
+            font-size: 110%;
+            width: 27%;
+        }
+        td:after {
+            padding-left: 1vw;
+            padding-top: 2vh;
+        }
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    body {
+        font-size: 9px;
+        margin: 1px;
+        .main-1, .main-2 {
+            flex: 3;
+        }
+        .main-3 {
+            flex: 5;
+        }
+    }
+
+    table.table.realtime-table {
+        td.padding-left, td.padding-left:after {
+            padding-top: 0;
+            padding-left: 3.5vw;
+        }
+    }
+
+    table.table.total-pageview-table {
+        th, td {
+            padding: 0;
+            font-size: inherit;
+        }
+        td:after {
+            padding-left: 0;
+            padding-top: 1vh;
+        }
+    }
+}

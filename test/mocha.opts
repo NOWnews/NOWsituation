@@ -1,0 +1,6 @@
+--compilers js:babel-core/register
+--require should
+--require babel-polyfill
+--require ./global
+--recursive
+--timeout 10000
