@@ -71,7 +71,9 @@
         Cookies.set('ta', this.ta);
 
         this.totalPageView = totalPageView.categories;
-        this.headline = allNewsHaedlines;
+        if (allNewsHaedlines && allNewsHaedlines.length > 0) {
+          this.headline = allNewsHaedlines;
+        }
         this.alexa = alexa;
         if (adminApi) {
           this.other = adminApi.fans;
