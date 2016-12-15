@@ -21,22 +21,28 @@ export default function pusher() {
     const Rank = new rank();
 
     const triggerInfo = co.wrap(function* (){
-        let result = yield info();
-        cacheData.allNewsHaedlines = result.allNewsHaedlines;
-        cacheData.totalPageView = result.totalPageView;
-        cacheData.alexa = yield Rank.alexa();
-        cacheData.adminApi = yield Admin.api();
+        try {
 
-        // 有抓到值就會複寫掉 admin 設定的資料
-        let facebook = yield Fans.facebook();
-        let weibo = yield Fans.weibo();
-        if (facebook) {
-            cacheData.adminApi.fans.facebook = parseInt(facebook, 10);
+            let result = yield info();
+            cacheData.allNewsHaedlines = result.allNewsHaedlines;
+            cacheData.totalPageView = result.totalPageView;
+            cacheData.alexa = yield Rank.alexa();
+            cacheData.adminApi = yield Admin.api();
+
+            // 有抓到值就會複寫掉 admin 設定的資料
+            let facebook = yield Fans.facebook();
+            if (facebook) {
+                cacheData.adminApi.fans.facebook = parseInt(facebook, 10);
+            }
+
+            let weibo = yield Fans.weibo();
+            if (weibo) {
+                cacheData.adminApi.fans.weibo = parseInt(weibo, 10);
+            }
+
+        } catch (e) {
+            console.error(e);
         }
-        if (weibo) {
-            cacheData.adminApi.fans.weibo = parseInt(weibo, 10);
-        }
-        return
     });
 
     const triggerGA = co.wrap(function* (){

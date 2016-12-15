@@ -25,7 +25,7 @@ export default class headline {
     }
     weibo = () => {
         return fetch('http://tw.weibo.com/nownews', {
-                timeout: 10000
+                timeout: 15000
             })
             .then((res) => {
                 return res.text();
