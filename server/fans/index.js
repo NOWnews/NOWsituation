@@ -8,21 +8,19 @@ export default class headline {
     }
 
     facebook = () => {
-        return fetch('http://likealyzer.com/facebook/nownews', {
+        let basicUrl = 'https://graph.facebook.com/v2.8/102884532662?fields=fan_count';
+        let accessToken = '132863386747341%7CTQ6gBA9E40cop1BjDhTCp4fE9wQ';
+        return fetch(`${basicUrl}&access_token=${accessToken}`, {
                 timeout: 10000
             })
             .then((res) => {
-                return res.text();
+                return res.json();
             })
-            .then((body) => {
-                let $ = cheerio.load(body);
-                let fansHtml = $('#sidebar1 span.spanrub[name="slickbox_fans"]').html();
-                // fansHtml = <strong>Likes:</strong> 337,927
-                let fansHtmlSplit = fansHtml.split(' ');
-                let fans = fansHtmlSplit[1].split(',').join('');
-                return Promise.resolve(fans);
+            .then(({ fan_count }) => {
+                return Promise.resolve(fan_count);
             });
     }
+
     weibo = () => {
         return fetch('http://tw.weibo.com/nownews', {
                 timeout: 15000
