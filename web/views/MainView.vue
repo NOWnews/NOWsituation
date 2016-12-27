@@ -61,6 +61,7 @@
         this.onlineUser = onlineUser;
         this.realtimeByTrafficType = trafficType;
         this.top10News = top10News;
+        this.alexa = alexa;
 
         this.ta.female = Math.round(gender.female * 1.4);
         this.ta.male = 100 - this.ta.female;
@@ -70,11 +71,15 @@
         this.ta.ageBracket = ageBracket;
         Cookies.set('ta', this.ta);
 
-        this.totalPageView = totalPageView.categories;
+
+        if (totalPageView && totalPageView.length > 0) {
+          this.totalPageView = totalPageView;
+        }
+
         if (allNewsHaedlines && allNewsHaedlines.length > 0) {
           this.headline = allNewsHaedlines;
         }
-        this.alexa = alexa;
+
         if (adminApi) {
           this.other = adminApi.fans;
         }

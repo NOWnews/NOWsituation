@@ -25,10 +25,9 @@ export default function pusher() {
 
             let result = yield info();
             cacheData.allNewsHaedlines = result.allNewsHaedlines;
-            cacheData.totalPageView = result.totalPageView;
+            cacheData.totalPageView = result.totalPageView.categories || [];
             cacheData.alexa = yield Rank.alexa();
             cacheData.adminApi = yield Admin.api();
-
             // 有抓到值就會複寫掉 admin 設定的資料
             let facebook = yield Fans.facebook();
             if (facebook) {
