@@ -48,6 +48,8 @@
 
   export default {
     created() {
+      google.charts.load('45', {'mapsApiKey': 'AIzaSyCPjNkHszcMWAuHbOu5bGa91ilHDHpPQSU', 'packages':['geochart', 'corechart']});
+
       function onChange(data) {
         this.isFlip = !this.isFlip;
 
@@ -105,8 +107,6 @@
           return;
         }
         this.deviceRate.mobile = parseInt(deviceRate.mobile) * 2;
-
-
       }
 
       sitiuationChannel.bind('sitiuationData', onChange.bind(this));
