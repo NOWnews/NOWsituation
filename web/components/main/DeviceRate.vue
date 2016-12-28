@@ -11,7 +11,8 @@
 
 export default {
   created () {
-    google.charts.load('45', {'packages':['corechart']});
+    // 在 MainView.vue 宣告
+    // google.charts.load('45', {'packages':['corechart']});
     google.charts.setOnLoadCallback(this.drawDeviceChart);
   },
   methods: {
@@ -49,11 +50,10 @@ export default {
         }
       };
 
-      //確認 deviceData 確實有值才開始 draw
-      if (this.deviceData.mobile){
-        let chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
+      if (!this.chart) {
+        this.chart = new google.visualization.PieChart(document.getElementById('piechart'));
       }
+      this.chart.draw(data, options);
     }
   },
   props: {
@@ -67,6 +67,11 @@ export default {
           mobile: 0
         };
       },
+    }
+  },
+  data () {
+    return {
+      chart: null
     }
   },
   watch: {
