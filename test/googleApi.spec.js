@@ -36,7 +36,7 @@ describe('GA', () => {
     it('top3NewsWeekly', (done) => {
         top3NewsWeekly()
         .then((result) => {
-            result.should.have.length(3);
+            result.should.have.length(5);
             return done();
         })
         .catch((err) => {

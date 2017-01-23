@@ -11,14 +11,14 @@ export default function () {
             'metrics': 'ga:pageviews',
             'dimensions': 'ga:pageTitle',
             'sort': '-ga:pageviews',
-            'max-results': 11, // 避免流量最多的是首頁(+2) & 其它頁面(+1) & 抓到類別(+5)
+            'max-results': 20, // 避免流量最多的是首頁(+2) & 其它頁面(+1) & 抓到機器人戳的類別
         };
         return Google.getAnalytics(params);
     })
     .then(({ rows }) => {
         let result = [], news;
         _.forEach(rows, (row) => {
-            // 如果是首頁(+2) & 其他則剔除(+1) &
+            // 如果是首頁(+2) & 其他則剔除(+1) & 抓到機器人戳的類別
             if ( row[0] === 'NOWnews 今日新聞') { return ;}
             if ( row[0] === '首頁 | 行動版 | NOWnews今日新聞') { return ;}
             if ( row[0] === '(other)') { return ;}
@@ -29,7 +29,7 @@ export default function () {
 
             result.push(news);
         });
-        return Promise.resolve(result.splice(0, 3));
+        return Promise.resolve(result.splice(0, 5));
     })
     .catch((err) => {
         return Promise.reject(err);
