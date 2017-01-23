@@ -37,7 +37,7 @@
     AnnounceBoard,
     Top3Salesperson,
     BackSeat3Salesperson,
-    Top3News,
+    TopNewsＷeekly,
     AboutNowNews,
   } from '../components/about';
 
@@ -73,7 +73,7 @@
       AnnounceBoard,
       Top3Salesperson,
       BackSeat3Salesperson,
-      Top3News,
+      TopNewsＷeekly,
       AboutNowNews,
     },
     data () {
