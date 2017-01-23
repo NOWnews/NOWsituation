@@ -1,7 +1,7 @@
 import {
     ageBracket,
     gender,
-    top3NewsWeekly,
+    topNewsWeekly,
 } from '../server/googleApis';
 
 describe('GA', () => {
@@ -33,8 +33,8 @@ describe('GA', () => {
         })
     });
 
-    it('top3NewsWeekly', (done) => {
-        top3NewsWeekly()
+    it('topNewsWeekly', (done) => {
+        topNewsWeekly()
         .then((result) => {
             result.should.have.length(5);
             return done();

@@ -11,7 +11,7 @@
           <BackSeat3Salesperson v-show="!isTopSales" :data="backSeatSales" :month="month"/>
         </div>
         <div class="column-2">
-          <Top3News :data="top3News"/>
+          <TopNewsWeekly :data="topNewsWeekly"/>
         </div>
       </div>
     </div>
@@ -48,8 +48,8 @@
         this.isTopSales = !this.isTopSales;
       }, 10000);
 
-      function onChange({ adminApi, top3News}) {
-        this.top3News = top3News;
+      function onChange({ adminApi, topNewsWeekly}) {
+        this.topNewsWeekly = topNewsWeekly;
         if (!adminApi) { return };
         let { annoucneMessages, achievementRate, backSeatSales, month, topSales } = adminApi;
         let messages = ['暫無'] ;
@@ -81,7 +81,7 @@
         isLogged: (Cookies.get("isLogged") === 'true'),
         isTopSales: true,
         annoucneMessages: ['暫無'],
-        top3News: ['--', '--', '--'],
+        topNewsWeekly: ['--', '--', '--'],
         topSales: [{
           name: '---',
           img: 'dist/default-img.png',

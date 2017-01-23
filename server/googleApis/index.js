@@ -4,6 +4,6 @@ export { default as realtimeByCountry } from './realtimeByCountry';
 export { default as realtimeByDeviceRate } from './realtimeByDeviceRate';
 export { default as realtimeByTop10News } from './realtimeByTop10News';
 export { default as realtimeByTrafficTypeAndTotal } from './realtimeByTrafficTypeAndTotal';
-export { default as top3NewsWeekly } from './top3NewsWeekly';
+export { default as topNewsWeekly } from './topNewsWeekly';
 
 

@@ -48,11 +48,11 @@ export default function pusher() {
         let result = yield [
             googleApis.ageBracket(),
             googleApis.gender(),
-            googleApis.top3NewsWeekly(),
+            googleApis.topNewsWeekly(),
         ];
         cacheData.ageBracket = result[0];
         cacheData.gender = result[1];
-        cacheData.top3News = result[2];
+        cacheData.topNewsWeekly = result[2];
     });
 
 
