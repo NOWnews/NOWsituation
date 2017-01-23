@@ -51,7 +51,7 @@
       function onChange({ adminApi, top3News}) {
         this.top3News = top3News;
         if (!adminApi) { return };
-        let { annoucneMessages, achievementRate, month, topSales } = adminApi;
+        let { annoucneMessages, achievementRate, backSeatSales, month, topSales } = adminApi;
         let messages = ['暫無'] ;
 
         if (annoucneMessages && annoucneMessages.trim() !== "") {
@@ -61,6 +61,7 @@
         this.annoucneMessages = messages;
         this.month = parseInt(month);
         this.topSales = _values(topSales) || [];
+        this.backSeatSales = _values(backSeatSales);
       }
 
       sitiuationChannel.bind('sitiuationData', onChange.bind(this));
