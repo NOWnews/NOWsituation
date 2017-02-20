@@ -48,8 +48,8 @@
       setInterval(() => {
         if (this.originData.length === 0) return;
 
-        // 取得資料，顏色為 index 的前一個
-        let colors = ['#a08f16', '#58b431', '#dd9900', '#dd3366', '#2271F8', '#58FEE8'];
+        // 取得資料
+        let colors = ['#58FEE8', '#a08f16', '#58b431', '#dd9900', '#dd3366', '#2271F8'];
         let item =this.originData[this.pageIndex];
         let { name, thisYearAR, thisMonthAR, nextMonthAR } = item;
         this.item = item;
