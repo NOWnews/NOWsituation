@@ -94,40 +94,7 @@
         }],
         backSeatSales: ['---', '---', '---'],
         month: 0,
-        revenueRate: {
-          total: {
-            name: "總業績達成率",
-            year: "",
-            month: "",
-            thisYearAR: 0,
-            thisMonthAR: 0,
-            nextMonthAR: 0
-          },
-          salesTeam1: {
-            name: "業務一部達成率",
-            year: "",
-            month: "",
-            thisYearAR: 0,
-            thisMonthAR: 0,
-            nextMonthAR: 0
-          },
-          salesTeam2: {
-            name: "業務二部達成率",
-            year: "",
-            month: "",
-            thisYearAR: 0,
-            thisMonthAR: 0,
-            nextMonthAR: 0
-          },
-          authorizationAndDfp: {
-            name: "聯播網 + 授權",
-            year: "",
-            month: "",
-            thisYearAR: 0,
-            thisMonthAR: 0,
-            nextMonthAR: 0
-          },
-        },
+        revenueRate: [],
       }
     }
   }

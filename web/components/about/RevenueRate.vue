@@ -1,6 +1,6 @@
 <template>
-  <div :class="['content-column', 'full-height', types[pageIndex]]">
-    <div class="title"> {{month}} 月{{name}}</div>
+  <div :class="['content-column', 'full-height', (item.type || 'total')]">
+    <div class="title"> {{month}} 月{{ item.name }}</div>
     <div class="flexbox full-height">
       <div class="box column-1 border">
         <chart :height="height" :width="width" :type="'pie'" :data="thisYearChart" :options="options"></chart>
@@ -31,7 +31,7 @@
   import { map as _map } from 'lodash'
   import Chart from 'vue-bulma-chartjs'
   import Vue from'vue';
-  function getDefaultFormt() {
+  function getUIDefaultFormt() {
     return {
       labels: [null, null],
       datasets: [{
@@ -43,31 +43,17 @@
     }
   }
 
-  function formatData(revenueRate) {
-    let result = _map(types, (type) => {
-      const data = revenueRate[type];
-      const { name } = data;
-
-      let rateValues = _map(labels, (key) => {
-        return parseInt(data[key], 10);
-      });
-
-      return {
-        name,
-        rateValues,
-      };
-
-    });
-    return result;
-  }
   export default {
     created () {
       setInterval(() => {
+        // Pusher 資料還沒傳遞進來時，先不做任何事
+        if (this.originData.length === 0) return;
+
         // 取得資料
-        let colors = ['#a08f16', '#58b431', '#dd9900', '#2271F8'];
-        let item = this.originData[this.types[this.pageIndex]];
+        let colors = ['#dd9900', '#a08f16', '#58b431', '#58FEE8', '#dd3366', '#2271F8'];
+        let item =this.originData[this.pageIndex];
         let { name, thisYearAR, thisMonthAR, nextMonthAR } = item;
-        this.name = name;
+        this.item = item;
 
         let thisYear = parseInt(thisYearAR, 10);
         let thisMonth = parseInt(thisMonthAR, 10);
@@ -76,38 +62,39 @@
         // 設定值
         Vue.set(this.pieColor, 0, colors[this.pageIndex]);
         Vue.set(this.thisYearData, 0, thisYear);
+        // 超過一百要歸零圖才會顯示完整的圓 (thisXXX >100 ? 0)
         Vue.set(this.thisYearData, 1, thisYear > 100 ? 0 : 100 - thisYear);
         Vue.set(this.thisMonthData, 0, thisMonth);
         Vue.set(this.thisMonthData, 1, thisMonth > 100 ? 0 : 100 - thisMonth);
         Vue.set(this.nextMonthData, 0, nextMonth);
         Vue.set(this.nextMonthData, 1, nextMonth > 100 ? 0 : 100 - nextMonth);
 
-        // 處理三個輪播
-        if (this.pageIndex == 3) {
+        // 處理六個輪播(index: 0-5)
+        if (this.pageIndex === 5) {
           this.pageIndex = 0;
           return;
         }
         this.pageIndex++;
-      }, 10000)
+      }, 5000)
     },
     components: {
       Chart,
     },
     computed: {
       thisYearChart () {
-        let defaultData = getDefaultFormt();
+        let defaultData = getUIDefaultFormt();
         defaultData.datasets[0].backgroundColor = this.pieColor;
         defaultData.datasets[0].data = this.thisYearData;
         return defaultData;
       },
       thisMonthChart () {
-        let defaultData = getDefaultFormt();
+        let defaultData = getUIDefaultFormt();
         defaultData.datasets[0].backgroundColor = this.pieColor;
         defaultData.datasets[0].data = this.thisMonthData;
         return defaultData;
       },
       nextMonthChart () {
-        let defaultData = getDefaultFormt();
+        let defaultData = getUIDefaultFormt();
         defaultData.datasets[0].backgroundColor = this.pieColor;
         defaultData.datasets[0].data = this.nextMonthData;
         return defaultData;
@@ -115,16 +102,12 @@
     },
     data () {
       return {
-        pageIndex: 0,
-        types: ['total', 'salesTeam1', 'salesTeam2', 'authorizationAndDfp'],
-        pieColor: ['#58FEE8', '#151DA0'],
-        thisYearData: [0, 100],
-        thisMonthData: [0, 100],
-        nextMonthData: [0, 100],
-        width: 100,
         height: 100,
-        name: "",
+        item: {},
         labels: ['今年度', '當月', '次月'],
+        nextMonthData: [0, 100],
+        pageIndex: 0,
+        pieColor: ['#dd9900', '#151DA0'],
         options: {
           tooltips: {
             enabled: false,
@@ -135,11 +118,14 @@
           responsive: true,
           borderWidth: 2,
         },
+        thisMonthData: [0, 100],
+        thisYearData: [0, 100],
+        width: 100,
       }
     },
     props: {
       originData: {
-        type: Object,
+        type: Array,
         required: true,
       },
       month: {
@@ -156,10 +142,10 @@
   }
   .content-column.total {
     .title {
-      background: #2271F8;
+      background: #dd9900;
     }
     .chartjs {
-      border-color: #2271F8;
+      border-color: #dd9900;
     }
   }
 
@@ -183,10 +169,28 @@
 
   .content-column.authorizationAndDfp {
     .title {
-      background: #dd9900;
+      background: #58FEE8;
     }
     .chartjs {
-      border-color: #dd9900;
+      border-color: #58FEE8;
+    }
+  }
+
+  .content-column.localCenter {
+    .title {
+      background: #dd3366;
+    }
+    .chartjs {
+      border-color: #dd3366;
+    }
+  }
+
+  .content-column.project {
+    .title {
+      background: #2271F8;
+    }
+    .chartjs {
+      border-color: #2271F8;
     }
   }
 
@@ -200,7 +204,7 @@
   }
   canvas.chartjs {
     margin-top: 10%;
-    border: 3px solid #58FEE8;
+    border: 3px solid #dd9900;
     border-radius: 50%;
   }
 

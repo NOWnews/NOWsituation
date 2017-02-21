@@ -2,7 +2,7 @@
   <div class="full-height img-box">
     <div class="title">公司簡介</div>
     <div class='border full-height flexbox'>
-      <a href="/">
+      <a class="img-content" href="/">
         <img name="AboutNOWnews" :src="require('../../assets/video/NOWnews.gif')" />
       </a>
       <!-- 用電視盒的 Chrome 沒有辦法播放，可是 Android 可以 -->
@@ -29,6 +29,11 @@ export default {
 </script>
 
 <style scoped>
+.img-content {
+  display: block;
+  width: 100%;
+}
+
 .title {
   background: #27B3BC;
 }

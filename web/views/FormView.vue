@@ -59,12 +59,6 @@
           <input v-model="fans.line" type="number" />
         </p>
         <p>臉書微博目前用爬蟲抓取粉絲資料</p>
-<!--         <p>臉書
-          <input v-model="fans.facebook" type="number" />
-        </p>
-        <p>微博
-          <input v-model="fans.weibo" type="number" /> -->
-        </p>
       </div>
     </div>
     <div id="submit-box" class="flexbox column-1">
@@ -108,33 +102,46 @@ export default {
     return {
       isLogged: (Cookies.get("isLogged") === 'true'),
       date: moment().subtract(1, 'months').format('YYYY-MM'),
-      achievementRate: {
-        total: {
+      achievementRate: [
+        {
+          type: "total",
           name: "總業績達成率",
           thisYearAR: 0,
           thisMonthAR: 0,
           nextMonthAR: 0,
-        },
-        salesTeam1: {
-          name: "業務一部達成率",
+        }, {
+          type: "salesTeam1",
+          name: "業一處達成率",
           year: "2016",
           thisYearAR: 0,
           thisMonthAR: 0,
           nextMonthAR: 0,
-        },
-        salesTeam2: {
-          name: "業務二部達成率",
+        }, {
+          type: "salesTeam2",
+          name: "業二處達成率",
           thisYearAR: 0,
           thisMonthAR: 0,
           nextMonthAR: 0,
-        },
-        authorizationAndDfp: {
+        }, {
+          type: "authorizationAndDfp",
           name: "聯播網 + 授權",
           thisYearAR: 0,
           thisMonthAR: 0,
           nextMonthAR: 0,
+        }, {
+          type: "localCenter",
+          name: "地方中心達成率",
+          thisYearAR: 0,
+          thisMonthAR: 0,
+          nextMonthAR: 0,
+        }, {
+          type: "project",
+          name: "專案業務達成率",
+          thisYearAR: 0,
+          thisMonthAR: 0,
+          nextMonthAR: 0,
         }
-      },
+      ],
       annoucneMessages: "",
       topSales: {
         name: "業績前三名",
@@ -171,11 +178,10 @@ export default {
       let { top1, top2, top3 } = this.topSales;
       let { back1, back2, back3 } = this.backSeatSales;
       let { line, facebook, weibo } = this.fans;
-      let achievementRate = {};
-
-      _.forEach(this.achievementRate, (value, key) => {
-        let { name, thisYearAR, thisMonthAR, nextMonthAR} = value;
-        achievementRate[key] = {
+      let achievementRate = _.map(this.achievementRate, (value) => {
+        let { type, name, thisYearAR, thisMonthAR, nextMonthAR } = value;
+        return {
+          type, 
           name,
           year,
           month,
