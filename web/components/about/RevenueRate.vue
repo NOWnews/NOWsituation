@@ -46,6 +46,7 @@
   export default {
     created () {
       setInterval(() => {
+        // Pusher 資料還沒傳遞進來時，先不做任何事
         if (this.originData.length === 0) return;
 
         // 取得資料
