@@ -50,7 +50,7 @@
         if (this.originData.length === 0) return;
 
         // 取得資料
-        let colors = ['#58FEE8', '#a08f16', '#58b431', '#dd9900', '#dd3366', '#2271F8'];
+        let colors = ['#dd9900', '#a08f16', '#58b431', '#58FEE8', '#dd3366', '#2271F8'];
         let item =this.originData[this.pageIndex];
         let { name, thisYearAR, thisMonthAR, nextMonthAR } = item;
         this.item = item;
@@ -75,7 +75,7 @@
           return;
         }
         this.pageIndex++;
-      }, 10000)
+      }, 5000)
     },
     components: {
       Chart,
@@ -107,7 +107,7 @@
         labels: ['今年度', '當月', '次月'],
         nextMonthData: [0, 100],
         pageIndex: 0,
-        pieColor: ['#58FEE8', '#151DA0'],
+        pieColor: ['#dd9900', '#151DA0'],
         options: {
           tooltips: {
             enabled: false,
@@ -142,10 +142,10 @@
   }
   .content-column.total {
     .title {
-      background: #58FEE8;
+      background: #dd9900;
     }
     .chartjs {
-      border-color: #58FEE8;
+      border-color: #dd9900;
     }
   }
 
@@ -169,10 +169,10 @@
 
   .content-column.authorizationAndDfp {
     .title {
-      background: #dd9900;
+      background: #58FEE8;
     }
     .chartjs {
-      border-color: #dd9900;
+      border-color: #58FEE8;
     }
   }
 
@@ -204,7 +204,7 @@
   }
   canvas.chartjs {
     margin-top: 10%;
-    border: 3px solid #58FEE8;
+    border: 3px solid #dd9900;
     border-radius: 50%;
   }
 
