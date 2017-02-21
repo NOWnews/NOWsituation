@@ -4,7 +4,6 @@
 {
   "year": "2016",
   "month": "8",
-
   "achievementRate": [
     {
       "type": "total",
@@ -45,22 +44,19 @@
       "nextMonthAR": 0,
     }
   ],
-  "topSales": {
-    "name": "業績前三名",
-    "top1": "XXX",
-    "top2": "XXX",
-    "top3": "XXX"
-  },
-  "backSeatSales": {
-    "name": "業績坐板凳",
-    "top1": "XXX",
-    "top2": "XXX",
-    "top3": "XXX"
-  },
+  topSales: [{
+    name: '---',
+    img: 'dist/default-img.png',
+  },{
+    name: '---',
+    img: 'dist/default-img.png',
+  },{
+    name: '---',
+    img: 'dist/default-img.png',
+  }],
+  "backSeatSales": ['---', '---', '---'],
   "fans": {
     "line": 12323,
-    "facebook": 4324234,
-    "weibo": 12312312312,
   },
   "annoucneMessages": "xx,xx"
 }
