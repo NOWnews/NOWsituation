@@ -17,8 +17,8 @@ export default class headline {
             })
             .then((body) => {
                 let $ = cheerio.load(body);
-                let title = $('.firstline > .run > .piece:first-child img').attr('alt');
-                let url = $('.firstline > .run > .piece:first-child a').attr('href');
+                let title = $('.hot_zone_box > .hot_zone > .area_1 > .gallery_1 > .run .inner .piece .pic img').eq(1).attr('title');
+                let url = $('.hot_zone_box > .hot_zone > .area_1 > .gallery_1 > .run .inner .piece .pic').eq(1).attr('href');
                 return Promise.resolve({
                     type: 'ettoday',
                     name: '東森新聞雲',
