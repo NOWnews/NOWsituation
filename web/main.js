@@ -11,6 +11,7 @@ const router = new VueRouter({
     routes: [
         { path: '/about', component: AboutView },
         { path: '/form', component: FormView },
+        { path: '/truth', component: MainView },
         { path: '*', component: MainView }
     ]
 });

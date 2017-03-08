@@ -1,3 +1,5 @@
+const isTruth = window.location.pathname === '/truth';
+
 export function thousandth (n) {
     n += "";
     var arr = n.split(".");
@@ -6,12 +8,12 @@ export function thousandth (n) {
 }
 
 export function thousandthWithMaigcNumber (n) {
-    const magicNumber = 7;
+    const magicNumber = isTruth ? 1 : 7;
     return thousandth(n * magicNumber);
 }
 
 export function thousandthWithMaigcNumberForPageView (n) {
-    const magicNumber = 2;
+    const magicNumber = isTruth ? 1 : 2;
     return thousandth(n * magicNumber);
 }
 
@@ -32,7 +34,6 @@ export function ellipsisTop10 (string) {
 
     return string.slice(0, stringLength) + "...";
 }
-
 
 export function ellipsisHeadline (string, index) {
     let stringLength = 16;
