@@ -46,6 +46,8 @@
     Other,
   } from '../components/main';
 
+  import { setDeviceRate, setSexRate } from '../lib/process';
+
   export default {
     created() {
       google.charts.load('45', {'mapsApiKey': 'AIzaSyCPjNkHszcMWAuHbOu5bGa91ilHDHpPQSU', 'packages':['geochart', 'corechart']});
@@ -65,11 +67,9 @@
         this.top10News = top10News;
         this.alexa = alexa;
 
-        this.ta.female = Math.round(gender.female * 1.4);
-        this.ta.male = 100 - this.ta.female;
-        // 為了讓比例約為 66 : 34
-        // this.ta.male = gender.male;
-        // this.ta.female = gender.female;
+        setSexRate(this.ta, gender.female);
+        setDeviceRate(this, deviceRate);
+
         this.ta.ageBracket = ageBracket;
         Cookies.set('ta', this.ta);
 
@@ -86,27 +86,6 @@
           this.other = adminApi.fans;
         }
 
-        this.deviceRate = deviceRate;
-
-        /*
-          22:00 - 12:30 mobile x2
-          14:30 - 17:30 mobile x2
-
-          代表以下區間為正常值
-          12:31 - 14:30
-          17:31 - 22:00
-        */
-        const date = new Date()
-        const h = date.getHours();
-        const min = date.getMinutes();
-        if (
-            (h === 12 && min > 30) || (h === 13) || (h === 14 && min <= 30) ||
-            (h === 17 && min > 30) || (h > 17 && h <= 22)
-        ) {
-          // 流量尖峰時間，不需要加乘
-          return;
-        }
-        this.deviceRate.mobile = parseInt(deviceRate.mobile) * 2;
       }
 
       sitiuationChannel.bind('sitiuationData', onChange.bind(this));
