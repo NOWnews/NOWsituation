@@ -59,8 +59,8 @@ export default class headline {
             })
             .then((body) => {
                 let $ = cheerio.load(body);
-                let title = $('.rbox.boxTitle > ul > li > a').text();
-                let url = $('.rbox.boxTitle > ul > li > a').attr('href');
+                let title = $('.rbox.boxTitle > ul > li > a').eq(0).text();
+                let url = $('.rbox.boxTitle > ul > li > a').eq(0).attr('href');
                 return Promise.resolve({
                     type: 'ltn',
                     name: '自由電子報',
