@@ -1,7 +1,8 @@
 import {
     ageBracket,
+    categoryPageviews,
     gender,
-    topNewsWeekly,
+    topNewsWeekly
 } from '../server/googleApis';
 
 describe('GA', () => {
@@ -37,6 +38,18 @@ describe('GA', () => {
         topNewsWeekly()
         .then((result) => {
             result.should.have.length(5);
+            return done();
+        })
+        .catch((err) => {
+            return done(err);
+        })
+    });
+
+
+    it('categoryPageviews', (done) => {
+        categoryPageviews()
+        .then((result) => {
+            result.should.have.length(12);
             return done();
         })
         .catch((err) => {

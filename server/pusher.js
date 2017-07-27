@@ -12,7 +12,9 @@ import rank from './rank';
 
 import { info } from './news';
 export default function pusher() {
-    let cacheData = {};
+    let cacheData = {
+        totalPageView: [],
+    };
     const pusher = new Pusher(config.pusher);
     const channelName = `${config.pusher.channelPrefix}sitiuationChannel`;
 
@@ -25,7 +27,6 @@ export default function pusher() {
 
             let result = yield info();
             cacheData.allNewsHaedlines = result.allNewsHaedlines;
-            cacheData.totalPageView = result.totalPageView.categories || [];
             cacheData.alexa = yield Rank.alexa();
             cacheData.adminApi = yield Admin.api();
             // 有抓到值就會複寫掉 admin 設定的資料
@@ -49,10 +50,12 @@ export default function pusher() {
             googleApis.ageBracket(),
             googleApis.gender(),
             googleApis.topNewsWeekly(),
+            googleApis.categoryPageviews(),
         ];
         cacheData.ageBracket = result[0];
         cacheData.gender = result[1];
         cacheData.topNewsWeekly = result[2];
+        cacheData.totalPageView = result[3];
     });
 
 

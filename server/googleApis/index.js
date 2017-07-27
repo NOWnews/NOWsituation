@@ -1,4 +1,5 @@
 export { default as ageBracket } from './ageBracket';
+export { default as categoryPageviews } from './categoryPageviews';
 export { default as gender } from './gender';
 export { default as realtimeByCountry } from './realtimeByCountry';
 export { default as realtimeByDeviceRate } from './realtimeByDeviceRate';

@@ -145,10 +145,6 @@
           {name: '', allTotalPageViews: 0},
           {name: '', allTotalPageViews: 0},
           {name: '', allTotalPageViews: 0},
-          {name: '', allTotalPageViews: 0},
-          {name: '', allTotalPageViews: 0},
-          {name: '', allTotalPageViews: 0},
-          {name: '', allTotalPageViews: 0},
         ],
         top10News: [
           '',
