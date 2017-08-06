@@ -50,7 +50,7 @@
 
   export default {
     created() {
-      google.charts.load('45', {'mapsApiKey': 'AIzaSyCPjNkHszcMWAuHbOu5bGa91ilHDHpPQSU', 'packages':['geochart', 'corechart']});
+      google.charts.load('45', {'mapsApiKey': 'AIzaSyDw2LzthzsRls-oPyKRDPHFz8_WFivsXcM', 'packages':['geochart', 'corechart']});
 
       function onChange(data) {
         this.isFlip = !this.isFlip;

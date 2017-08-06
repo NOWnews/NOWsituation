@@ -1,8 +1,8 @@
-import express from 'express';
+import koa from 'koa';
 import path from 'path';
 const resolve = file => path.resolve(__dirname, file)
 
-const app = express()
+const app = new koa();
 
 app.use('/dist', express.static(resolve('./dist')));
 
