@@ -6,7 +6,7 @@ describe.skip('admin', () => {
         Admin = new admin();
     });
     it('api', (done) => {
-        Admin.api()
+        Admin.get()
         .then((result) => {
             result.should.be.Object;
             done();

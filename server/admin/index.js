@@ -1,21 +1,19 @@
-import fetch from 'node-fetch';
-
-
 export default class admin {
 
     // 建構式
     constructor() {
     }
 
-    api = () => {
-        return fetch('http://localhost:3000/admin/', {
-                timeout: 20000
-            })
-            .then((res) => {
-                return res.json();
-            })
-            .then((body) => {
-                return Promise.resolve(body);
-            });
+    get = () => {
+        let promise = this.mongo.db('situation-admin')
+            .collection('info')
+            .find({})
+            .sort({createdAt: -1})
+            .limit(1)
+            .toArray();
+
+        return promise.then((result) => {
+            return Promise.resolve(body);
+        });
     }
 };

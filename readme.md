@@ -3,7 +3,6 @@
 這個專案底下有分成三個部分：
 
 - bin
-    - admin: admin 設定的資料儲存 (port: 3000)
     - server: pusher 的 server (port: 5000)
     - web: 前端網站 (port: 8080)
 
@@ -22,7 +21,6 @@
 ### HOW TO START FOR DEV MODE
 
 ```
-npm run admin
 npm run dev:server
 # for web
 npm start
@@ -31,7 +29,6 @@ npm start
 ### HOW TO START FOR PROD MODE
 
 ```
-npm run admin
 npm run prod:server
 
 # for web
