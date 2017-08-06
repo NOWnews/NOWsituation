@@ -181,7 +181,7 @@ export default {
       let achievementRate = _.map(this.achievementRate, (value) => {
         let { type, name, thisYearAR, thisMonthAR, nextMonthAR } = value;
         return {
-          type, 
+          type,
           name,
           year,
           month,
