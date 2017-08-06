@@ -33,7 +33,7 @@ npm run prod:server
 
 # for web
 npm run build
-npm prod:start
+npm run prod:web
 ```
 
 ### HOＷ TO RUN TEST FOR SERVER
