@@ -8,7 +8,7 @@
 
 ## NOTIC
 
-為了避免開發資料與線上資料混用影響，
+1. 為了避免開發資料與線上資料混用影響，
 
 有透過 `./config.js` 切換頻道的前綴，
 
@@ -16,9 +16,16 @@
 
 記得將 `puseher.channelPrefix` 的 'dev.' 換成 ''。
 
+
+2. 版本
+```
+node: v7.6.0 (要支援 async)
+npm: 4.1.2
+```
+
 ## COMMAND LINE
 
-### HOW TO START FOR DEV MODE
+### How To Start For Dev Mode
 
 ```
 npm run dev:server
@@ -26,7 +33,7 @@ npm run dev:server
 npm start
 ```
 
-### HOW TO START FOR PROD MODE
+### How To Start For Prod Mode
 
 ```
 npm run prod:server
@@ -36,7 +43,7 @@ npm run build
 npm run prod:web
 ```
 
-### HOＷ TO RUN TEST FOR SERVER
+### How To Run Test For Data Source
 
 ```
 npm test
