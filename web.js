@@ -1,17 +1,24 @@
-import express from 'express';
-import path from 'path';
-const resolve = file => path.resolve(__dirname, file)
+import koa from 'koa';
+import koaRouter from 'koa-router';
+import fs from 'fs';
+import server from 'koa-static-server';
 
-const app = express()
+const app = new koa();
+const router = new koaRouter();
 
-app.use('/dist', express.static(resolve('./dist')));
+app.use(server({rootDir: 'dist', rootPath: '/dist'}))
 
-app.get('/manifest.json', (req, res) => {
-    return res.sendFile(resolve('./manifest.json'));
+router.get('/manifest.json', async (ctx) => {
+    ctx.type = 'json';
+    ctx.body = fs.createReadStream('manifest.json');
 });
 
-app.get('*', (req, res) => {
-    return res.sendFile(resolve('./index.html'));
+router.get('*', async (ctx) => {
+    ctx.type = 'html';
+    ctx.body = fs.createReadStream('index.html');
 });
+
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 module.exports = app;

@@ -7,6 +7,7 @@ describe('fans', () => {
     it('weibo', (done) => {
         Fans.weibo()
         .then((value) => {
+            // console.log(value);
             value.should.be.Number;
             done();
         }, (err) => {
@@ -16,7 +17,7 @@ describe('fans', () => {
     it('facebook', (done) => {
         Fans.facebook()
         .then((value) => {
-            console.log(value);
+            // console.log(value);
             value.should.be.Number;
             done();
         }, (err) => {

@@ -22,6 +22,7 @@ export default function () {
             if ( row[0] === 'NOWnews 今日新聞') { return ;}
             if ( row[0] === '首頁 | 行動版 | NOWnews今日新聞') { return ;}
             if ( row[0] === '(other)') { return ;}
+            if ( row[0].indexOf('404頁面') > -1) { return ;}
 
             news = row[0].replace('| NOWnews今日新聞', '').trim();
             news = news.replace('| NOWnews 今日新聞', '').trim();

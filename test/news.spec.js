@@ -1,12 +1,12 @@
-import { info } from '../server/news';
+import news from '../server/news';
 describe('news', () => {
-    it('info', (done) => {
-        info()
+    it('index', (done) => {
+        news()
         .then((result) => {
-            result.should.have.keys('allNewsHaedlines', 'totalPageView');
-            console.log(result);
-            result.allNewsHaedlines.should.have.length(6);
-            result.totalPageView.should.have.keys('categories', 'allTotal');
+            // console.log(result);
+            result.should.have.keys('headlines');
+            result.headlines.should.have.length(6);
+            result.headlines[0].should.have.keys('type', 'name', 'title', 'url');
             done();
         }, (err) => {
             done(err);

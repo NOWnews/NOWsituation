@@ -10,7 +10,7 @@ import admin from './admin';
 import fans from './fans';
 import rank from './rank';
 
-import { info } from './news';
+import news from './news';
 export default function pusher() {
     let cacheData = {
         totalPageView: [],
@@ -22,13 +22,14 @@ export default function pusher() {
     const Fans = new fans();
     const Rank = new rank();
 
-    const triggerInfo = co.wrap(function* (){
+    const triggerOtherInfo = co.wrap(function* (){
         try {
 
-            let result = yield info();
-            cacheData.allNewsHaedlines = result.allNewsHaedlines;
+            let result = yield news();
+            cacheData.allNewsHaedlines = result.headlines;
             cacheData.alexa = yield Rank.alexa();
-            cacheData.adminApi = yield Admin.api();
+            cacheData.adminApi = yield Admin.getApi();
+
             // 有抓到值就會複寫掉 admin 設定的資料
             let facebook = yield Fans.facebook();
             if (facebook) {
@@ -102,14 +103,17 @@ export default function pusher() {
         pusher.trigger(channelName, 'sitiuationData', cacheData);
     };
 
-    triggerInfo();
+    triggerOtherInfo();
     triggerGA();
     triggerRealtimeGA();
-    setInterval(triggerInfo, 30 * 1000);
+    setInterval(triggerOtherInfo, 30 * 1000);
     setInterval(triggerRealtimeGA, 30 * 10 * 1000);
     setInterval(triggerGA, 12 * 60 * 60 * 1000); // 12hr 更新一次
     setInterval(sendToSlackWebhook, 120 * 1000);
     setInterval(sendToPusher, 15 * 1000);
-    return;
+
+    return function (next) {
+        return next;
+    }
 }
 

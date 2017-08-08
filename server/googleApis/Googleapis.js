@@ -2,7 +2,7 @@ import google from 'googleapis'
 
 export default class Googleapis {
     constructor() {
-        let { clientEmail, privateKey } = config.google;
+        let { clientEmail, privateKey } = config.server.google;
         this._jwtClient = new google.auth.JWT(
             clientEmail,
             null,
@@ -52,7 +52,7 @@ export default class Googleapis {
 
     setParams = (params) => {
         params.auth = this._jwtClient;
-        params.ids = config.google.id;
+        params.ids = config.server.google.id;
         return
     }
 }
