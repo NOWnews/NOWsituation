@@ -45,12 +45,16 @@
     Alexa,
     Other,
   } from '../components/main';
-
+  import { web } from '../../config';
   import { setDeviceRate, setSexRate } from '../lib/process';
+  const { mapsApiKey } = web;
 
   export default {
     created() {
-      google.charts.load('45', {'mapsApiKey': 'AIzaSyDw2LzthzsRls-oPyKRDPHFz8_WFivsXcM', 'packages':['geochart', 'corechart']});
+      google.charts.load('45', {
+        mapsApiKey,
+        packages :['geochart', 'corechart']
+      });
 
       function onChange(data) {
         this.isFlip = !this.isFlip;

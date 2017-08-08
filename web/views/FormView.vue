@@ -74,9 +74,9 @@ import _ from 'lodash';
 import moment from 'moment';
 import fetchival from 'fetchival';
 import LoginView from './LoginView.vue';
-import { apiServer } from '../../config';
+import { web } from '../../config';
 const url = `${apiServer}/admin`;
-
+const { apiServer } = web;
 
 export default {
   beforeCreate () {

@@ -26,7 +26,7 @@
 import { thousandthWithMaigcNumber } from '../../lib/filter';
 export default {
   created () {
-    // 在 MainView.vue 宣告
+    // 在 MainView.vue 宣告了
     // google.charts.load('45', {'mapsApiKey': 'AIzaSyCPjNkHszcMWAuHbOu5bGa91ilHDHpPQSU', 'packages':['geochart']});
     google.charts.setOnLoadCallback(this.drawRegionsMap);
 
