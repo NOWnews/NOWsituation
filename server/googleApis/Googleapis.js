@@ -52,7 +52,7 @@ export default class Googleapis {
 
     setParams = (params) => {
         params.auth = this._jwtClient;
-        params.ids = config.google.id;
+        params.ids = config.server.google.id;
         return
     }
 }
