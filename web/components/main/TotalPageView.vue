@@ -12,7 +12,6 @@
           <td style="width: 15%" :cardData="thousandthWithMaigcNumberForPageView(data[index + 6].allTotalPageViews)" :class="['card', 'delay-' + (index + 1) ]">
             {{data[index + 5].allTotalPageViews | thousandthWithMaigcNumberForPageView}}
           </td>
-
         </tr>
       </table>
     </div>

@@ -35,6 +35,12 @@ export default function () {
                 result.push({name: menu, allTotalPageViews: row[1]});
             }
         });
+
+        while (result.length < 10) {
+            result.push({ name: '---', allTotalPageViews: 0});
+        }
+
+
         return Promise.resolve(result);
     })
     .catch((err) => {

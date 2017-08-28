@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Added
 - 增加初始化資料 @esbb48
+- 確保各中心數量一定為 10 個 @esbb48
 
 ### Changed
 - 各中心當日排行，數量調整為 10 個 @esbb48
