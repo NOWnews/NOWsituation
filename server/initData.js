@@ -1,8 +1,5 @@
-`GET/POST http:localhost:5000/admin`
-
-```
-{
-  "year": "2016",
+const adminData = {
+  "year": "2017",
   "month": "8",
   "achievementRate": [
     {
@@ -57,6 +54,7 @@
   "fans": {
     "line": 12323,
   },
-  "annoucneMessages": "xx,xx"
-}
-```
+  "annoucneMessages": ""
+};
+
+export default adminData;

@@ -54,7 +54,7 @@ describe('GA', () => {
         categoryPageviews()
         .then((result) => {
             // console.log(result);
-            result.should.have.length(12);
+            result.should.have.length(10);
             result[0].should.have.keys('name', 'allTotalPageViews');
             result[0].name.should.be.String;
             parseInt(result[0].allTotalPageViews, 10).should.be.Number;
