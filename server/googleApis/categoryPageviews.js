@@ -17,18 +17,15 @@ export default function () {
     })
     .then(({ rows, totalsForAllResults }) => {
         const definedMainMenu = {
-            '娛樂': 'isMainMenu',
-            '社會': 'isMainMenu',
-            '生活': 'isMainMenu',
-            '運動': 'isMainMenu',
             '政治': 'isMainMenu',
-            '新奇': 'isMainMenu',
             '財經': 'isMainMenu',
+            '社會': 'isMainMenu',
+            '運動': 'isMainMenu',
+            '娛樂': 'isMainMenu',
+            '新奇': 'isMainMenu',
+            '生活': 'isMainMenu',
             '全球': 'isMainMenu',
             '地方': 'isMainMenu',
-            '科技': 'isMainMenu',
-            '消費': 'isMainMenu',
-            '趣遊': 'isMainMenu'
         }
 
         var result = [];

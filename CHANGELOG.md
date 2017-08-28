@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Added
+- 增加初始化資料
+
 ## 1.1.0 - 2017-08-08
 ### Changed
 - 合併 pusher 與 admin api server @esbb48
