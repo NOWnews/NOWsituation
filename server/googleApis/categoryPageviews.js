@@ -32,12 +32,13 @@ export default function () {
         _.forEach(rows, (row) => {
             var menu = row[0];
             if (definedMainMenu[menu]) {
-                result.push({name: menu, allTotalPageViews: row[1]});
+                let index = result.length;
+                result.push({name: `${index + 1}${menu}`, allTotalPageViews: row[1]});
             }
         });
 
         while (result.length < 10) {
-            result.push({ name: '---', allTotalPageViews: 0});
+            result.push({ name: '---', allTotalPageViews: 0 });
         }
 
 

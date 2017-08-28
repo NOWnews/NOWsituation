@@ -4,12 +4,12 @@
     <div class="full-height">
       <table class="table total-pageview-table">
         <tr v-for="index in [0, 1, 2, 3, 4]">
-          <th>{{index + 1}}{{data[index].name}}</th>
+          <th>{{data[index].name}}</th>
           <td :cardData="thousandthWithMaigcNumberForPageView(data[index].allTotalPageViews)" :class="['card', 'delay-' + (index + 1) ]">
             {{data[index].allTotalPageViews | thousandthWithMaigcNumberForPageView}}
           </td>
-          <th style="width: 25%" >{{index + 7}}{{data[index + 6].name}}</th>
-          <td style="width: 15%" :cardData="thousandthWithMaigcNumberForPageView(data[index + 6].allTotalPageViews)" :class="['card', 'delay-' + (index + 1) ]">
+          <th style="width: 25%" >{{data[index + 5].name}}</th>
+          <td style="width: 15%" :cardData="thousandthWithMaigcNumberForPageView(data[index + 5].allTotalPageViews)" :class="['card', 'delay-' + (index + 1) ]">
             {{data[index + 5].allTotalPageViews | thousandthWithMaigcNumberForPageView}}
           </td>
         </tr>
