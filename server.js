@@ -5,6 +5,7 @@ import koaBody from 'koa-body';
 import mongo from 'koa-mongo';
 import moment from 'moment-timezone';
 import pusher from './server/pusher';
+import initData from './server/initData';
 
 const app = new koa();
 const router = new koaRouter();
@@ -24,7 +25,7 @@ router.get('/admin', async function(ctx, next) {
             .sort({createdAt: -1})
             .limit(1)
             .toArray();
-        ctx.body = result[0];
+        ctx.body = result[0] || initData;
     }).post('/admin', async function(ctx, next) {
     let data = ctx.request.body;
     data.createdAt = Date.now();
@@ -34,7 +35,6 @@ router.get('/admin', async function(ctx, next) {
         .db('situation-admin')
         .collection('info')
         .insert(data);
-
     ctx.body = result.ops[0];
 });
 
