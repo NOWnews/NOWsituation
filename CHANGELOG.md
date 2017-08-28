@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## 1.1.1 - 2017-08-28
 ### Added
 - 增加初始化資料 @esbb48
 - 確保各中心數量一定為 10 個 @esbb48
