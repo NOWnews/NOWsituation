@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## 1.1.2 - 2017-08-31
+### Fixed 
+- Api Config 的取得 @esbb48
+- 修正 initData @esbb48
+
 ## 1.1.1 - 2017-08-28
 ### Added
 - 增加初始化資料 @esbb48

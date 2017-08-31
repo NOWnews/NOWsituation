@@ -75,13 +75,14 @@ import moment from 'moment';
 import fetchival from 'fetchival';
 import LoginView from './LoginView.vue';
 import { web } from '../../config';
-const url = `${apiServer}/admin`;
 const { apiServer } = web;
+const url = `${apiServer}/admin`;
 
 export default {
   beforeCreate () {
     fetchival(url).get()
-    .then(({ achievementRate, annoucneMessages, topSales, backSeatSales, fans, year, month }) => {
+    .then((data) => {
+      const { achievementRate, annoucneMessages, topSales, backSeatSales, fans, year, month } = data;
       if (year && month) {
         this.date = `${year}-${month}`;
         this.achievementRate = achievementRate;

@@ -40,17 +40,27 @@ const adminData = {
       "nextMonthAR": 0,
     }
   ],
-  topSales: [{
-    name: '---',
-    img: 'dist/default-img.png',
-  },{
-    name: '---',
-    img: 'dist/default-img.png',
-  },{
-    name: '---',
-    img: 'dist/default-img.png',
-  }],
-  "backSeatSales": ['---', '---', '---'],
+  topSales: {
+    name: "業績前三名",
+    top1: {
+      name: "---",
+      img: "---"
+    },
+    top2: {
+      name: "---",
+      img: "---"
+    },
+    top3: {
+      name: "---",
+      img: "---"
+    },
+  },
+  backSeatSales: {
+    name: "業績坐板凳",
+    back1: "---",
+    back2: "---",
+    back3: "---"
+  },
   "fans": {
     "line": 12323,
   },
