@@ -69,8 +69,9 @@
         Vue.set(this.nextMonthData, 0, nextMonth);
         Vue.set(this.nextMonthData, 1, nextMonth > 100 ? 0 : 100 - nextMonth);
 
-        // 處理六個輪播(index: 0-5)
-        if (this.pageIndex === 5) {
+        // 處理六個輪播(index: 0-4) 
+        // 專案業務達成率是 5，目前沒有此業務部門先略過
+        if (this.pageIndex === 4) {
           this.pageIndex = 0;
           return;
         }
