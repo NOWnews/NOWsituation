@@ -32,6 +32,7 @@ export default {
 .img-content {
   display: block;
   width: 100%;
+  text-align: center;
 }
 
 .title {
@@ -42,7 +43,7 @@ export default {
     background: #000;
 }
 video, img {
-  width: 100%;
+  width: auto;
   height: 100%;
 }
 
