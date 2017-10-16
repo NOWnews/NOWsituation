@@ -5,7 +5,7 @@ module.exports = {
         key: '6a300271d86955a4fbe7',
         secret: 'b30f63250e9549698531',
         encrypted: true,
-        channelPrefix: isProd ? '' : '',
+        channelPrefix: isProd ? '' : 'dev.',
     },
     server: {
         google: {
