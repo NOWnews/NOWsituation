@@ -43,8 +43,8 @@ export default {
     background: #000;
 }
 video, img {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .img-box {
