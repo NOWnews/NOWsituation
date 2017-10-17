@@ -33,6 +33,8 @@ export default {
   display: block;
   width: 100%;
   text-align: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .title {
