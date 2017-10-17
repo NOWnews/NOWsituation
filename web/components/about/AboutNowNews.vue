@@ -45,7 +45,7 @@ export default {
     background: #000;
 }
 video, img {
-  width: auto;
+  width: 100%;
   height: 100%;
 }
 
