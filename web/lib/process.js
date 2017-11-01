@@ -32,8 +32,8 @@ export function setDeviceRate (source, deviceRate) {
 export function setSexRate (ta, female) {
     // 為了讓比例約為 66 : 34
     // 目前比例差不多是
-    const maxNum = 67;
-    const minNum = 60;
+    const maxNum = 36;
+    const minNum = 34;
     female = isTruth ? female : Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum; 
     ta.female = female;
     ta.male = 100 - ta.female;
