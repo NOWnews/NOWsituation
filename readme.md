@@ -1,4 +1,4 @@
-## About
+## ABOUT
 
 這個專案底下有分成兩個部分：
 
@@ -6,7 +6,7 @@
     - server: pusher 結合 crawler server (port: 5000)
     - web: 前端 Vue 網站 (port: 8080)
 
-## NOTIC
+## NOTICE
 
 1. 為了避免開發資料與線上資料混用影響，
 
@@ -50,7 +50,7 @@ npm run prod:web
 npm test
 ```
 
-## Structure
+## STRUCTURE
 
 ```
 .
@@ -96,7 +96,7 @@ npm test
 └── /webpack.config.js          # webpack 相關設定
 ```
 
-## 前台頁面
+## WEB PAGE
 
 1. 首頁 * 魔術數字
 http://10.20.200.190:8080/
