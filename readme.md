@@ -1,5 +1,7 @@
 ## ABOUT
 
+![default](https://user-images.githubusercontent.com/5118200/35603088-8c3f97a4-0676-11e8-8ee4-b102ec296a25.png)
+
 這個專案底下有分成兩個部分：
 
 - bin
